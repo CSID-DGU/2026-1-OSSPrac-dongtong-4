@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <section class="hero-section d-flex align-items-center">
     <div class="container">
         <div class="row align-items-center g-5">
@@ -13,13 +14,13 @@
                 </span>
 
                 <h1 class="display-5 fw-bold mb-4">
-                    차분하고 신뢰감 있는<br>
-                    Flask 기반 팀 소개 웹사이트
+                    오픈소스소프트웨어<br>
+                    4팀 dongtong 팀 소개 웹사이트
                 </h1>
 
                 <p class="lead text-secondary justify-text">
-                    본 웹사이트는 Flask, Bootstrap, Nginx 기반으로 제작된 오픈소스소프트웨어 프로젝트 팀 소개 페이지입니다.
-                    팀원의 역할, 기술 스택, 프로젝트 기여도, 포트폴리오와 연락처를 체계적으로 제공합니다.
+                    본 웹사이트는 오픈소스소프트웨어 4팀 dongtong의 팀 소개 페이지입니다. 
+                    팀원별 기술 스택, 프로젝트 기여도, 연락처, 자기소개 등을 카드와 표 형태로 제공합니다.   
                 </p>
 
                 <div class="d-flex gap-3 mt-4">
@@ -169,7 +170,7 @@
         <div class="text-center mb-5" data-aos="fade-up">
             <h2 class="section-title">팀원 소개</h2>
             <p class="text-secondary">
-                각 팀원의 역할, 기술 스택, 프로젝트 기여도를 확인할 수 있습니다.
+                각 팀원의 역할, 기술 스택, 프로젝트 기여도, 연락처, 자기소개를 확인할 수 있습니다.
             </p>
         </div>
 
@@ -201,6 +202,24 @@
                         <h6 class="fw-bold mt-4 mb-2">프로젝트 기여도</h6>
                         <p class="small text-secondary justify-text">
                             {{ member.contribution }}
+                        </p>
+
+                        <h6 class="fw-bold mt-4 mb-2">연락처</h6>
+                        <div class="small text-secondary">
+                            <p class="mb-1">
+                                <strong>학과:</strong> {{ member.department }}
+                            </p>
+                            <p class="mb-1">
+                                <strong>전화번호:</strong> {{ member.phone }}
+                            </p>
+                            <p class="mb-1">
+                                <strong>이메일:</strong> {{ member.email }}
+                            </p>
+                        </div>
+
+                        <h6 class="fw-bold mt-4 mb-2">자기소개</h6>
+                        <p class="small text-secondary justify-text">
+                            {{ member.self_intro }}
                         </p>
 
                         <div class="d-flex gap-2 mt-4">
