@@ -1,6 +1,7 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 
 app = Flask(__name__)
+messages = []
 
 team_members = [
     {
@@ -154,17 +155,52 @@ def member_detail(member_id):
     )
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-
 @app.route("/input")
 def input_page():
-    return render_template("input.html")
+    return render_template("input.html", active_page="input")
+
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", active_page="contact")
 
-@app.route("/result")
+
+@app.route("/result", methods=["GET", "POST"])
 def result():
-    return render_template("result.html")
+    if request.method == "POST":
+        name = request.form.get("name")
+        interest = request.form.get("interest")
+        message = request.form.get("message")
+
+        new_message = {
+            "name": name,
+            "interest": interest,
+            "message": message
+        }
+
+        messages.append(new_message)
+
+    else:
+        name = "입력된 이름이 없습니다."
+        interest = "입력된 관심 분야가 없습니다."
+        message = "입력된 메시지가 없습니다."
+
+    return render_template(
+        "result.html",
+        name=name,
+        interest=interest,
+        message=message,
+        active_page="input"
+    )
+    
+@app.route("/messages")
+def message_list():
+    return render_template(
+        "messages.html",
+        messages=messages,
+        active_page="messages"
+    )
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)

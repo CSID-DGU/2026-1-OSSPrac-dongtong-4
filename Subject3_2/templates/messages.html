@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}방문자 메시지 목록{% endblock %}
+
+{% block content %}
+<section class="py-5" style="margin-top: 90px;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge rounded-pill text-bg-primary-subtle text-primary px-3 py-2 mb-3">
+        Message List
+      </span>
+      <h2 class="fw-bold">방문자 메시지 목록</h2>
+      <p class="text-secondary">
+        지금까지 입력된 방문자 메시지를 확인할 수 있습니다.
+      </p>
+    </div>
+
+    {% if messages %}
+      <div class="row g-4">
+        {% for item in messages %}
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm border-0 rounded-4">
+            <div class="card-body p-4">
+              <div class="mb-3">
+                <span class="badge text-bg-light">
+                  {{ item.interest }}
+                </span>
+              </div>
+
+              <h5 class="fw-bold mb-2">{{ item.name }}</h5>
+              <p class="text-secondary mb-0">
+                {{ item.message }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body text-center p-5">
+          <h5 class="fw-bold">아직 남겨진 메시지가 없습니다.</h5>
+          <p class="text-secondary mb-4">
+            방문자 메시지를 먼저 입력해주세요.
+          </p>
+          <a href="{{ url_for('input_page') }}" class="btn btn-primary rounded-pill px-4">
+            메시지 남기기
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="text-center mt-5">
+      <a href="{{ url_for('input_page') }}" class="btn btn-outline-primary rounded-pill px-4 me-2">
+        메시지 남기기
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn-primary rounded-pill px-4">
+        메인으로 이동
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

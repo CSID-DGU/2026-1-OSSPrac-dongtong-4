@@ -1,6 +1,77 @@
 {% extends "base.html" %}
 
+{% block title %}방문자 메시지 입력{% endblock %}
+
 {% block content %}
-<h1>Input Page</h1>
-<p>팀 정보를 입력하는 페이지입니다.</p>
+<section class="py-5" style="margin-top: 90px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-5">
+            <div class="text-center mb-4">
+              <span class="badge rounded-pill text-bg-primary-subtle text-primary px-3 py-2 mb-3">
+                Visitor Message
+              </span>
+              <h2 class="fw-bold">방문자 메시지 남기기</h2>
+              <p class="text-secondary mb-0">
+                이름, 관심 분야, 남기고 싶은 메시지를 입력해주세요.
+              </p>
+            </div>
+
+            <form action="{{ url_for('result') }}" method="post">
+              <div class="mb-3">
+                <label for="name" class="form-label fw-semibold">이름</label>
+                <input
+                  type="text"
+                  class="form-control rounded-3"
+                  id="name"
+                  name="name"
+                  placeholder="이름을 입력하세요"
+                  required
+                >
+              </div>
+
+              <div class="mb-3">
+                <label for="interest" class="form-label fw-semibold">관심 분야</label>
+                <select class="form-select rounded-3" id="interest" name="interest" required>
+                  <option value="" selected disabled>관심 분야를 선택하세요</option>
+                  <option value="Frontend">Frontend</option>
+                  <option value="Backend">Backend</option>
+                  <option value="Flask">Flask</option>
+                  <option value="Docker">Docker</option>
+                  <option value="GitHub">GitHub</option>
+                  <option value="Open Source">Open Source</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label for="message" class="form-label fw-semibold">남긴 메시지</label>
+                <textarea
+                  class="form-control rounded-3"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="팀에게 남기고 싶은 메시지를 입력하세요"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary rounded-pill px-4">
+                  메인으로
+                </a>
+                <button type="submit" class="btn btn-primary rounded-pill px-4">
+                  결과 확인하기
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
