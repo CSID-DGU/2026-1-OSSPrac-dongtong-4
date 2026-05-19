@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    image: ddaeng0321/team4-dongtong:latest
+    ports:
+      - "8000:80"
