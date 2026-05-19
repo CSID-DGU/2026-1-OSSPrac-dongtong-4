@@ -1,6 +1,60 @@
 {% extends "base.html" %}
 
+{% block title %}입력 결과 확인{% endblock %}
+
 {% block content %}
-<h1>Result Page</h1>
-<p>입력 결과를 확인하는 페이지입니다.</p>
+<section class="py-5" style="margin-top: 90px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-5">
+            <div class="text-center mb-4">
+              <span class="badge rounded-pill text-bg-success-subtle text-success px-3 py-2 mb-3">
+                Result
+              </span>
+              <h2 class="fw-bold">입력 결과 확인</h2>
+              <p class="text-secondary mb-0">
+                방문자가 입력한 메시지 내용입니다.
+              </p>
+            </div>
+
+            <div class="list-group list-group-flush mb-4">
+              <div class="list-group-item px-0 py-3">
+                <div class="fw-semibold text-secondary small mb-1">입력한 이름</div>
+                <div class="fs-5">{{ name }}</div>
+              </div>
+
+              <div class="list-group-item px-0 py-3">
+                <div class="fw-semibold text-secondary small mb-1">관심 분야</div>
+                <div class="fs-5">{{ interest }}</div>
+              </div>
+
+              <div class="list-group-item px-0 py-3">
+                <div class="fw-semibold text-secondary small mb-1">남긴 메시지</div>
+                <div class="fs-5">{{ message }}</div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between flex-wrap gap-2">
+              <a href="{{ url_for('input_page') }}" class="btn btn-outline-primary rounded-pill px-4">
+                다시 입력하기
+              </a>
+
+              <a href="{{ url_for('message_list') }}" class="btn btn-outline-success rounded-pill px-4">
+                전체 메시지 보기
+              </a>
+
+              <a href="{{ url_for('index') }}" class="btn btn-primary rounded-pill px-4">
+                메인으로 이동
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

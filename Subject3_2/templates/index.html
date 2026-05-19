@@ -23,12 +23,18 @@
                     팀원별 기술 스택, 프로젝트 기여도, 연락처, 자기소개 등을 카드와 표 형태로 제공합니다.
                 </p>
 
-                <div class="d-flex gap-3 mt-4">
+                <div class="d-flex gap-3 mt-4 flex-wrap">
                     <a href="#team" class="btn btn-primary rounded-pill px-4">
                         팀원 보기
                     </a>
                     <a href="#architecture" class="btn btn-outline-secondary rounded-pill px-4">
                         웹 구조 보기
+                    </a>
+                    <a href="{{ url_for('input_page') }}" class="btn btn-outline-primary rounded-pill px-4">
+                        방문자 메시지 남기기
+                    </a>
+                    <a href="{{ url_for('message_list') }}" class="btn btn-outline-success rounded-pill px-4">
+                        방문자 메시지 확인
                     </a>
                 </div>
             </div>
