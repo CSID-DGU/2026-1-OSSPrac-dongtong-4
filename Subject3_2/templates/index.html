@@ -21,6 +21,8 @@
                 <p class="lead text-secondary justify-text">
                     본 웹사이트는 오픈소스소프트웨어 4팀 dongtong의 팀 소개 페이지입니다.
                     팀원별 기술 스택, 프로젝트 기여도, 연락처, 자기소개 등을 카드와 표 형태로 제공합니다.
+                    또한 AI 도구를 활용해 소개 문구와 화면 구성을 개선하고,
+                    Docker Compose 기반 실행 구조를 추가하여 웹 프로젝트를 보완하였습니다.
                 </p>
 
                 <div class="d-flex gap-3 mt-4 flex-wrap">
@@ -29,6 +31,9 @@
                     </a>
                     <a href="#architecture" class="btn btn-outline-secondary rounded-pill px-4">
                         웹 구조 보기
+                    </a>
+                    <a href="#upgrade" class="btn btn-outline-dark rounded-pill px-4">
+                        적용 기술 보기
                     </a>
                     <a href="{{ url_for('input_page') }}" class="btn btn-outline-primary rounded-pill px-4">
                         방문자 메시지 남기기
@@ -179,6 +184,115 @@
 </section>
 
 
+<section id="upgrade" class="section-space pt-0">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">AI·Docker 적용 내용</h2>
+            <p class="text-secondary">
+                AI 도구와 Docker Compose 실습 내용을 팀 소개 웹 프로젝트에 어떻게 적용했는지 정리했습니다.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="mini-feature h-100">
+                    <i class="bi bi-stars"></i>
+                    <h5>AI 도구 활용</h5>
+                    <p>
+                         AI 도구를 활용하여 AI·Docker 적용 내용 섹션과 Docker 실행 구조 설명 문구를 정리하였습니다.
+                         수업 자료의 Docker Compose 흐름을 웹 페이지 안에서 쉽게 이해할 수 있도록 카드와 흐름도 형태로 구성했습니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="mini-feature h-100">
+                    <i class="bi bi-chat-dots"></i>
+                    <h5>방문자 메시지 기능</h5>
+                    <p>
+                        Flask의 입력 처리 기능을 활용하여 방문자가 메시지를 남기고 확인할 수 있는 페이지를 추가했습니다.
+                        이를 통해 정적인 팀 소개 페이지를 사용자 입력이 가능한 동적인 웹 프로그램으로 개선했습니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="mini-feature h-100">
+                    <i class="bi bi-box-seam"></i>
+                    <h5>Docker 실행 환경 추가</h5>
+                    <p>
+                        Dockerfile과 docker-compose.yml을 작성하여 웹 프로젝트를 컨테이너 환경에서 실행할 수 있도록 구성했습니다.
+                        이를 통해 개발 환경이 달라도 동일한 방식으로 웹 서비스를 실행할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-11" data-aos="fade-up">
+                <div class="content-card">
+                    <h2 class="section-title">Docker Compose 기반 실행 구조</h2>
+
+                    <div class="architecture-diagram">
+                        <div class="arch-box">
+                            <i class="bi bi-folder2-open"></i>
+                            <strong>Project Folder</strong>
+                            <span>Flask 웹 프로젝트</span>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+
+                        <div class="arch-box">
+                            <i class="bi bi-filetype-py"></i>
+                            <strong>Dockerfile</strong>
+                            <span>이미지 빌드 설정</span>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+
+                        <div class="arch-box">
+                            <i class="bi bi-file-earmark-ruled"></i>
+                            <strong>docker-compose.yml</strong>
+                            <span>서비스 실행 설정</span>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+
+                        <div class="arch-box">
+                            <i class="bi bi-box"></i>
+                            <strong>Container</strong>
+                            <span>웹 서비스 실행</span>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+
+                        <div class="arch-box">
+                            <i class="bi bi-cloud-upload"></i>
+                            <strong>DockerHub</strong>
+                            <span>이미지 공유</span>
+                        </div>
+                    </div>
+
+                    <p class="text-secondary mt-4 mb-0 justify-text">
+                        본 프로젝트는 Dockerfile을 통해 Flask 웹 애플리케이션 실행에 필요한 환경을 이미지로 만들고,
+                        docker-compose.yml을 통해 이미지 빌드, 컨테이너 실행, 포트 연결을 관리합니다.
+                        생성된 이미지는 DockerHub에 push하여 다른 사용자가 동일한 웹 서비스를 실행할 수 있도록 구성했습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <section id="team" class="section-space pt-0">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
@@ -321,6 +435,28 @@
                         <div class="process-item">
                             <div class="process-number">05</div>
                             <div>
+                                <h5>AI 도구 활용 및 기능 개선</h5>
+                                <p>
+                                     AI 도구를 활용하여 AI·Docker 적용 내용 섹션과 Docker 실행 구조 설명 문구를 정리하였습니다.
+                                     수업 자료의 Docker Compose 흐름을 웹 페이지 안에서 쉽게 이해할 수 있도록 카드와 흐름도 형태로 구성했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="process-item">
+                            <div class="process-number">06</div>
+                            <div>
+                                <h5>Docker Compose 실행 환경 구성</h5>
+                                <p>
+                                    수업 자료의 Docker Compose 실습 내용을 참고하여 Dockerfile과 docker-compose.yml을 작성하였습니다.
+                                    이를 통해 Flask 웹 프로젝트를 이미지로 빌드하고, 컨테이너로 실행할 수 있도록 구성하였습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="process-item">
+                            <div class="process-number">07</div>
+                            <div>
                                 <h5>GitHub 협업</h5>
                                 <p>
                                     팀원별 브랜치를 활용하여 기능을 나누어 작업하고, Pull Request를 통해 변경 사항을 확인한 뒤
@@ -330,12 +466,12 @@
                         </div>
 
                         <div class="process-item">
-                            <div class="process-number">06</div>
+                            <div class="process-number">08</div>
                             <div>
                                 <h5>테스트 및 개선</h5>
                                 <p>
-                                    이미지 경로, 템플릿 연결, navbar 이동, 상세 페이지 라우팅 등을 확인하며 오류를 수정하고
-                                    사용자에게 보기 좋은 화면이 되도록 디자인을 개선하였습니다.
+                                    이미지 경로, 템플릿 연결, navbar 이동, 상세 페이지 라우팅, Docker 컨테이너 실행 여부를 확인하며
+                                    오류를 수정하고 사용자에게 보기 좋은 화면이 되도록 디자인을 개선하였습니다.
                                 </p>
                             </div>
                         </div>
@@ -386,6 +522,8 @@
                         이번 프로젝트를 통해 Flask의 기본 라우팅 구조, 템플릿 렌더링 방식, static 파일 연결 방식,
                         Bootstrap을 활용한 반응형 UI 구성 방법을 익힐 수 있었습니다. 또한 GitHub를 활용한 브랜치 관리,
                         Pull Request, Merge 과정을 직접 경험하면서 오픈소스 협업 흐름을 이해할 수 있었습니다.
+                        추가로 Dockerfile과 docker-compose.yml을 작성하고 DockerHub에 이미지를 push하면서
+                        컨테이너 기반 웹 서비스 실행 과정을 실습할 수 있었습니다.
                     </p>
                 </div>
             </div>
